@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <style>
+
+        body {
+                font-family: 'newtimes roman';
+                text-align: left;
+                margin: 30px;
+                background-color: rgb(239, 216, 99);
+            }
+
+h1 {
+    color: #000000;
+}
+
+form {
+    max-width: 300px;
+    margin: 20px;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+select,
+input[type="text"],
+input[type="color"] {
+    width: 50%;
+    padding: 8px;
+    margin: 10px 0 10px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+button:hover {
+    background-color: #45a049;
+}
+
+        #colorBox {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Customize Your Own T-Shirt</h1>
+    <form id="customTshirtForm">
+        <label for="size"><strong><u>Size:</u></label>
+        <select id="size" name="size">
+            <option value="Small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xl">XL</option>
+        </select>
+
+        <label for="Select Color"><strong><u>Pick a Color</u></label>
+            
+        <div class="colorOption">
+            <label for="red">Red</label>
+            <input type="radio" id="red" name="color" value="#FF0000" onchange="changeColor()">
+        </div> 
+        
+        <div class="colorOption">
+            <label for="green">Green</label>
+            <input type="radio" id="green" name="color" value="#1e7805" onchange="changeColor()">
+        </div>
+        
+        <div class="colorOption">
+            <label for="blue">Blue</label>
+            <input type="radio" id="blue" name="color" value="#0000FF" onchange="changeColor()">
+        </div>
+
+        <div id="colorBox"></div>  
+
+        
+    
+        <br>
+        <label><u>Words Placement:</u></label>
+        <select id="size" name="size">
+            <option value="Front">Front</option>
+            <option value="Back">Back</option>
+        </select>
+        
+        
+        <label for="words"><u>Enter Words for T-Shirt:</u></label>
+        <input type="text" id="words" name="words" placeholder="Enter your words">
+<br>
+<br>
+        <button type="submit" onclick="placeOrder()">Place Order</button>
+
+    </form>
+<br>
+
+    <script>
+ 
+        function changeColor() {
+        var colorInputs = document.getElementsByName("color");
+        var colorBox = document.getElementById("colorBox");
+
+        for (var i = 0; i < colorInputs.length; i++) {
+            if (colorInputs[i].checked) {
+                colorBox.style.backgroundColor = colorInputs[i].value;
+                break;
+            }
+        }
+        }
+
+        alert("Congratulations! Your order for is placed.");
+
+    </script>
+      
+</body>
+</html>
